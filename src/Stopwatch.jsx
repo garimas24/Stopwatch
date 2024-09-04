@@ -10,9 +10,10 @@ export default function Stopwatch() {
       intervalId = setInterval(() => {
         setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
       }, 1000);
-    } else {
-      clearInterval(intervalId);
     }
+    // else {
+    //   clearInterval(intervalId);
+    // }
     return () => clearInterval(intervalId);
   }, [isRunning]);
 
@@ -27,7 +28,7 @@ export default function Stopwatch() {
   const formatTime = (sec) => {
     const min = Math.floor(sec / 60);
     const remainingSec = sec % 60;
-    return `${min}: ${remainingSec < 10 ? "0" : ""}${remainingSec}`;
+    return `${min} : ${remainingSec < 10 ? "0" : ""}${remainingSec}`;
   };
   return (
     <div>
