@@ -10,10 +10,9 @@ export default function Stopwatch() {
       intervalId = setInterval(() => {
         setElapsedTime((prevElapsedTime) => prevElapsedTime + 1);
       }, 1000);
+    } else {
+      clearInterval(intervalId);
     }
-    // else {
-    //   clearInterval(intervalId);
-    // }
     return () => clearInterval(intervalId);
   }, [isRunning]);
 
@@ -33,7 +32,7 @@ export default function Stopwatch() {
   return (
     <div>
       <h1>Stopwatch</h1>
-      <p>Time:{formatTime(elapsedTime)}</p>
+      <p>Time: {formatTime(elapsedTime)}</p>
       <button onClick={startStop}>{isRunning ? "Stop" : "Start"}</button>
       <button onClick={reset}>Reset</button>
     </div>
